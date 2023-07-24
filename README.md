@@ -1,6 +1,8 @@
 
 # PY-MICROSERVICE-POC
 
+[![Quality gate](https://sonarcloud.io/api/project_badges/quality_gate?project=upa-io_py-microservice-poc)](https://sonarcloud.io/summary/new_code?id=upa-io_py-microservice-poc)
+
 Proyecto PoC de REST API con FastAPI en Python.
 
 Requisitos:
