@@ -6,7 +6,7 @@ on:
   pull_request:
     types: [opened, synchronize, reopened]
 jobs:
-  sonarcloud:
+  quality-code:
     name: SonarCloud
     runs-on: ubuntu-latest
     steps:
@@ -18,8 +18,10 @@ jobs:
           python-version: '3.11' 
       - name: Install tox and any other packages
         run: pip install tox
-      - name: Run tox
+      - name: Tox
         run: tox -e py
+      - name: Bandit scanner
+        run: bandit -r ${{ github.workspace }} -o bandit_report.json --format json   
       - name: SonarCloud Scan
         uses: SonarSource/sonarcloud-github-action@v1.9.1
         env:
