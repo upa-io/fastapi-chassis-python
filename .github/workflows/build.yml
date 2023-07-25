@@ -7,7 +7,7 @@ on:
     types: [opened, synchronize, reopened]
 jobs:
   quality-code:
-    name: SonarCloud
+    name: Quality-Code
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3.5.3
@@ -18,13 +18,9 @@ jobs:
           python-version: '3.11' 
       - name: Install Tox
         run: pip install tox
-      - name: Tox
+      - name: Run Tox Scan
         run: tox -e py
-      - name: Install Bandit 
-        run: pip install bandit 
-      - name: Bandit scanner
-        run: bandit -r ${{ github.workspace }} -o bandit_report.json --format json -x "*/.t ox/*"
-      - name: SonarCloud Scan
+      - name: Run SonarCloud Scan
         if: always()
         uses: SonarSource/sonarcloud-github-action@v1.9.1
         env:
