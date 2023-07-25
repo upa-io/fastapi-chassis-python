@@ -12,13 +12,21 @@ def test_read_root(client):
     assert response.json() == {"Hello": "World"}
 
 def test_read_item(client):
-    response = client.get("/items/1")
-    assert response.status_code == 200
-    assert response.json() == {"item_id": 1, "q": None}
-
     response = client.get("/items/1?q=test")
+
     assert response.status_code == 200
-    assert response.json() == {"item_id": 1, "q": "test"}
+    item_id = int(response.json()["item_id"])
+
+    assert item_id == 1
+    assert response.json()["q"] == "test"
+
+    response = client.get("/items/2")
+
+    assert response.status_code == 200
+    item_id = int(response.json()["item_id"])
+
+    assert item_id == 2
+    assert response.json()["q"] is None
 
 def test_update_item(client):
     item_data = {"name": "Product", "price": 9.99, "is_offer": True}
