@@ -20,12 +20,10 @@ jobs:
         run: pip install tox
       - name: Tox
         run: tox -e py
-      - uses: shundor/bandit-action@v1
-        with: 
-            path: "."
-            level: high
-            confidence: high
-            exit_zero: true           
+      - name: Install Bandit 
+        run: pip install bandit 
+      - name: Bandit scanner
+       run: bandit -r ${{ github.workspace }} -o bandit_report.json --format json -x "*/.t ox/*" || true
       - name: SonarCloud Scan
         uses: SonarSource/sonarcloud-github-action@v1.9.1
         env:
