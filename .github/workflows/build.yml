@@ -20,16 +20,12 @@ jobs:
         run: pip install tox
       - name: Tox
         run: tox -e py
-      - name: Install Bandit 
-        run: pip install bandit 
-      - name: Bandit scanner
-        run: |
-          bandit -r ${{ github.workspace }} -o bandit_report.json --format json -x "*/.tox/*"
-          EXIT_CODE=$?
-          if [ $EXIT_CODE -ne 0 ]; then
-            echo "Bandit analysis completed with exit code $EXIT_CODE. Changing to exit code 0."
-            exit 0
-          fi
+      - uses: shundor/bandit-action@v1
+        with: 
+            path: "."
+            level: high
+            confidence: high
+            exit_zero: true           
       - name: SonarCloud Scan
         uses: SonarSource/sonarcloud-github-action@v1.9.1
         env:
