@@ -1,5 +1,5 @@
 from fastapi.testclient import TestClient
-from main import app, Item
+from app.main import app, Item
 import pytest
 
 items = []
