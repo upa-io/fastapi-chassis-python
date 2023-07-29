@@ -38,6 +38,18 @@ Endpoints del API
 - GET /items/{item_id}: Retorna los detalles de un ítem con el ID proporcionado.
 - PUT /items/{item_id}: Actualiza los detalles de un ítem con el ID proporcionado.
 - DELETE /items/{item_id}: Elimina el ítem con el ID proporcionado.
+- PATCH /items/{item_id}: Actualiza parcialmente el ítem con el ID proporcionado.
+- OPTIONS /items/: Obtener las opciones del endpoint ítem.
+- POST /items/: Creacion de nuevo ítem.
+
+4. Ejecucion de contenedor
+Construccion de imagen de docker
+```docker build -t myimage .```
+
+Ejecucion de contenedor, con la imagen creada en el paso previa.
+```docker run -d --name mycontainer -p 80:80 myimage```
+
+Se seguiran los mismos endpoints que se ha mencionado anteriormente.
 
 Contribuciones
 

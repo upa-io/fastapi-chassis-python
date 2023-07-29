@@ -1,0 +1,6 @@
+{
+    "sonarlint.connectedMode.project": {
+        "connectionId": "upa-io",
+        "projectKey": "upa-io_py-microservice-poc"
+    }
+}
