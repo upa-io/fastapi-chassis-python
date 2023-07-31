@@ -65,4 +65,13 @@ def test_partial_update_item(client):
     response = client.patch(f"/items/{item_id}", json=item_data)
     
     assert response.status_code == 200
+
+def test_update_item_invalid_item_id(client):
+    item_data = {"name": "Product", "price": 9.99, "is_offer": True}
+    response = client.put("/items/invalid_id", json=item_data)
+    assert response.status_code == 422
+
+def test_delete_item_invalid_item_id(client):
+    response = client.delete("/items/invalid_id")
+    assert response.status_code == 422
     
