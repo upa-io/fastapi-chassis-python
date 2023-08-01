@@ -28,7 +28,7 @@ Instalación
 
 Para ejecutar el API, utiliza el siguiente comando:
 
-uvicorn main:app --reload
+```uvicorn app.main:app --reload```
 
 Luego, accede a http://127.0.0.1:8000/docs para ver la documentación interactiva del API proporcionada por Swagger UI.
 
