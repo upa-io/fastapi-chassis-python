@@ -20,11 +20,15 @@ jobs:
         run: pip install tox
       - name: Run Tox Scan
         run: tox -e py
-      - name: Display Coverage Report
+      - name: Display Coverage Report Before
         run: cat coverage.xml
-      # - name: Run SonarCloud Scan
-      #   if: always()
-      #   uses: SonarSource/sonarcloud-github-action@v2.0.0
-      #   env:
-      #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Needed to get PR information, if any
-      #     SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+      - name: Override Coverage Source Path for Sonar
+        run: sed -i "s|<source>\/home\/runner\/work\/py-microservice-poc\/py-microservice-poc\/app<\/source>|<source>\/home\/runner\/work\/py-microservice-poc\/py-microservice-poc\/app<\/source>|" coverage.xml
+      - name: Display Coverage Report After
+        run: cat coverage.xml
+      - name: Run SonarCloud Scan
+        if: always()
+        uses: SonarSource/sonarcloud-github-action@v2.0.0
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Needed to get PR information, if any
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
