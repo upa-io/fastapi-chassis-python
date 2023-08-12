@@ -20,10 +20,6 @@ jobs:
         run: pip install tox
       - name: Run Tox Scan
         run: tox -e py
-      - name: Display Coverage Report Before
-        run: cat coverage.xml
-      - name: Override Coverage Source Path for Sonar
-        run: sed -i 's|<source>/home/runner/work/py-microservice-poc/py-microservice-poc/app</source>|<source>/home/runner/work/py-microservice-poc/app/</source>|' coverage.xml
       - name: Display Coverage Report After
         run: cat coverage.xml
       - name: Run SonarCloud Scan
