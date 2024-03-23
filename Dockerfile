@@ -1,5 +1,5 @@
 # Usamos la imagen base de Python 3.9.17 con una versión "slim" para un contenedor más ligero
-FROM python:3.9.17-slim
+FROM python:3.12.2-slim
 
 # Crear un usuario no privilegiado llamado "appuser"
 RUN adduser --disabled-password --gecos "" appuser
@@ -20,4 +20,4 @@ COPY ./app /code/app
 USER appuser
 
 # Comando que se ejecutará al iniciar el contenedor: inicia la aplicación FastAPI con Uvicorn
-CMD ["uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "80"]
+CMD ["uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "8000"]

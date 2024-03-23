@@ -7,7 +7,7 @@ Proyecto PoC de REST API con FastAPI en Python.
 
 Requisitos:
 
-- Python 3.9.17
+- Python 3.12
 - FastAPI >=0.109.0,<0.110.1
 
 FastAPI se basa en las siguientes librerías:

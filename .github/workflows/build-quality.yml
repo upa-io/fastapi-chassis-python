@@ -1,8 +1,11 @@
-name: SonarCloud Analysis
+name: build-quality
 on:
   push:
     branches:
       - main
+    paths:
+      - 'app/**/*.py'
+      - 'requirements.txt'
   pull_request:
     types: [opened, synchronize, reopened]
 jobs:
