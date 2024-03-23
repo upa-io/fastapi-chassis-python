@@ -12,7 +12,7 @@
   // "forwardPorts": [8000],
 
   // Use 'postCreateCommand' to run commands after the container is created.
-  "postCreateCommand": "pip3 install --user -r requirements.txt",
+  "postCreateCommand": "apt-get update && apt-get install -y apt-transport-https ca-certificates curl software-properties-common && curl -fsSL https://download.docker.com/linux/debian/gpg | apt-key add - && add-apt-repository \"deb [arch=amd64] https://download.docker.com/linux/debian $(lsb_release -cs) stable\" && apt-get update && apt-get install -y docker-ce-cli && pip3 install --user -r requirements.txt",
 
   // Configure tool-specific properties.
   "customizations": {
@@ -23,8 +23,9 @@
         "streetsidesoftware.code-spell-checker",
         "ms-python.python",
         "ms-python.vscode-pylance",
-        "humao.rest-client",
-        "eamodio.gitlens"
+        "rangav.vscode-thunder-client",
+        "eamodio.gitlens",
+        "joslarson.black-vscode"
       ]
     }
   }
