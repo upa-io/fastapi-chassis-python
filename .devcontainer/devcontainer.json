@@ -3,7 +3,7 @@
 {
   "name": "Python 3.12",
   // Or use a Dockerfile or Docker Compose file. More info: https://containers.dev/guide/dockerfile
-  "image": "mcr.microsoft.com/devcontainers/python:3.12",
+  "dockerFile": "Dockerfile",
   "features": {
     "ghcr.io/devcontainers-contrib/features/coverage-py:2": {}
   },
@@ -24,7 +24,6 @@
         "ms-python.python",
         "ms-python.vscode-pylance",
         "rangav.vscode-thunder-client",
-        "eamodio.gitlens",
         "joslarson.black-vscode"
       ]
     }
