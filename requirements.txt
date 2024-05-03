@@ -4,7 +4,7 @@
 # Utilizamos la sintaxis ">=0.68.0,<0.69.0" para incluir todas las versiones
 # desde la 0.68.0 (inclusive) hasta la 0.69.0 (no inclusiva).
 # Esto asegura que tengamos una versión compatible con las funcionalidades requeridas.
-fastapi>=0.109.0,<0.110.4
+fastapi>=0.109.0,<0.111.1
 
 # Especificamos la versión de Pydantic que queremos utilizar. 
 # Al igual que con FastAPI, utilizamos la sintaxis ">=1.8.0,<2.0.0" para incluir todas las versiones
