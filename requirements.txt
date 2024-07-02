@@ -10,7 +10,7 @@ fastapi>=0.109.0,<0.111.1
 # Al igual que con FastAPI, utilizamos la sintaxis ">=1.8.0,<2.0.0" para incluir todas las versiones
 # desde la 1.8.0 (inclusive) hasta la 2.0.0 (no inclusiva).
 # Esto nos garantiza tener una versión compatible con las funcionalidades que necesitamos.
-pydantic>=2.6.0,<2.7.5
+pydantic>=2.8.0,<2.8.1
 
 # Especificamos la versión de Uvicorn que queremos utilizar. 
 # Utilizamos la sintaxis ">=0.15.0,<0.16.0" para incluir todas las versiones
