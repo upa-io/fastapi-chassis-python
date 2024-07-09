@@ -1,14 +1,20 @@
 FROM mcr.microsoft.com/devcontainers/python:0-3.11
 
 ENV PYTHONUNBUFFERED 1
-ENV MYENV = "development"
-
+ENV MYENV="development"
 
 # Update args in docker-compose.yaml to set the UID/GID of the "vscode" user.
 ARG USER_UID=1000
 ARG USER_GID=$USER_UID
 RUN if [ "$USER_GID" != "1000" ] || [ "$USER_UID" != "1000" ]; then groupmod --gid $USER_GID vscode && usermod --uid $USER_UID --gid $USER_GID vscode; fi
 
+# Install zsh and clean up apt cache
+RUN apt-get update && apt-get install -y zsh \
+    && apt-get clean \
+    && rm -rf /var/lib/apt/lists/*
+
+# Set zsh as the default shell
+RUN chsh -s $(which zsh)
 
 RUN python -m pip install --upgrade pip 
 
@@ -16,7 +22,7 @@ WORKDIR /workspace
 
 
 # [Option] Install Node.js
-ARG INSTALL_NODE="false"
+ARG INSTALL_NODE="true"
 ARG NODE_VERSION="lts/*"
 RUN if [ "${INSTALL_NODE}" = "true" ]; then su vscode -c "umask 0002 && . /usr/local/share/nvm/nvm.sh && nvm install ${NODE_VERSION} 2>&1"; fi
 
