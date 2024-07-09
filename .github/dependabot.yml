@@ -8,8 +8,26 @@ updates:
     schedule:
       # Check for updates to GitHub Actions every week
       interval: "daily"
+    assignees:
+      - "aguirre-jes"
   - package-ecosystem: "pip"
     directory: "/"
     schedule:
       # Check for updates to Pip every week
       interval: "daily"
+    assignees:
+      - "aguirre-jes"
+  - package-ecosystem: "docker"
+    directory: "/.devcontainer"
+    schedule:
+      # Check for updates to Docker every week
+      interval: "daily"
+    assignees:
+      - "aguirre-jes"
+  - package-ecosystem: "docker"
+    directory: "/"
+    schedule:
+      # Check for updates to Docker every week
+      interval: "daily"
+    assignees:
+      - "aguirre-jes"
