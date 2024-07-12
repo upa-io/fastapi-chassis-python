@@ -5,9 +5,8 @@ on:
       - main
     paths:
       - 'app/**/*.py'
+      - 'tests/**/*.py'
       - 'requirements.txt'
-  pull_request:
-    types: [opened, synchronize, reopened]
 jobs:
   quality-code:
     name: Quality-Code

@@ -1,42 +1,41 @@
-from fastapi import FastAPI, Response
+from fastapi import FastAPI, Body, Query
+from datetime import datetime
 from pydantic import BaseModel
-from typing import Optional 
-from typing import Union
+from utils import Utils
 
 app = FastAPI()
 
-class Item(BaseModel):
-    name: str
-    price: float
-    is_offer: Optional[bool] = None
+class DateInput(BaseModel):
+    date: datetime = datetime.now()
 
-items = []
+class DateRangeInput(BaseModel):
+    date1: datetime
+    date2: datetime
 
-@app.get("/")
-def read_root():
-    return {"Hello": "World"}
+class StringDateInput(BaseModel):
+    date_string: str
+    date_format: str = "%Y-%m-%d"
 
-@app.get("/items/{item_id}")
-def read_item(item_id: Union[int, str], q: Union[str, None] = None) -> dict:
-    return {"item_id": item_id, "q": q}
+@app.get("/generate_current_datetime")
+def generate_current_datetime():
+    return {"current_datetime": Utils.generate_current_datetime()}
 
-@app.put("/items/{item_id}")
-def update_item(item_id: int, item: Item):
-    return {"item_name": item.name, "item_id": item_id}
+@app.post("/days_between_dates")
+def days_between_dates(input: DateRangeInput):
+    days = Utils.days_between_dates(input.date1, input.date2)
+    return {"days_between": days}
 
-@app.delete("/items/{item_id}")
-def delete_item(item_id: int):
-    return {"message": f"Item {item_id} eliminado"}
+@app.post("/string_to_datetime")
+def string_to_datetime(input: StringDateInput):
+    result_date = Utils.string_to_datetime(input.date_string, input.date_format)
+    return {"result_date": result_date}
 
-@app.post("/items/")
-def create_item(item: Item):
-    items.append(item)
-    return Response(status_code=201)
+@app.get("/first_day_of_month")
+def get_first_day_of_month(date: datetime = Query(..., description="The date to find the first day of its month")):
+    result_date = Utils.get_first_day_of_month(date)
+    return {"first_day_of_month": result_date.isoformat()}
 
-@app.options("/items/")
-def get_options():  
-    return {"message": "OPTIONS response"}
-
-@app.patch("/items/{item_id}")
-def partial_update_item(item_id: int, item: Item):
-    return Response(status_code=200)
+@app.get("/last_day_of_month")
+def get_last_day_of_month(date: datetime = Query(..., description="The date to find the last day of its month")):
+    result_date = Utils.get_last_day_of_month(date)
+    return {"last_day_of_month": result_date.isoformat()}
