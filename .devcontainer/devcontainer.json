@@ -21,7 +21,9 @@
                 // Add the IDs of extensions you want installed when the container is created.
                 "extensions": [
                     "ms-python.vscode-pylance",
-                    "ms-python.python"
+                    "ms-python.python",
+                    "github.copilot",
+                    "kevinrose.vsc-python-indent"
                 ],
                 "postCreateCommand": "pip install --user -r requirements.txt"
             }
