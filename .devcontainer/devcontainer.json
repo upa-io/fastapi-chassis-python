@@ -22,13 +22,12 @@
                 "extensions": [
                     "ms-python.vscode-pylance",
                     "ms-python.python"
-                ]
+                ],
+                "postCreateCommand": "pip install --user -r requirements.txt"
             }
         }
     }
 }
 // Use 'forwardPorts' to make a list of ports inside the container available locally.
 // "forwardPorts": [5000, 5432],
-// Use 'postCreateCommand' to run commands after the container is created.
-// "postCreateCommand": "pip install --user -r requirements.txt",
 // Comment out connect as root instead. More info: https://aka.ms/vscode-remote/containers/non-root.
