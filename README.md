@@ -3,7 +3,6 @@
 
 [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=upa-io_py-microservice-poc&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=upa-io_py-microservice-poc) [![Coverage](https://sonarcloud.io/api/project_badges/measure?project=upa-io_py-microservice-poc&metric=coverage)](https://sonarcloud.io/summary/new_code?id=upa-io_py-microservice-poc) [![Lines of Code](https://sonarcloud.io/api/project_badges/measure?project=upa-io_py-microservice-poc&metric=ncloc)](https://sonarcloud.io/summary/new_code?id=upa-io_py-microservice-poc)
 
-Proyecto PoC de REST API con FastAPI en Python.
 # Requirements
 
 - Python 3.11
