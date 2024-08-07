@@ -1,7 +1,7 @@
 from fastapi import FastAPI, Body, Query
 from datetime import datetime
 from pydantic import BaseModel
-from utils import Utils
+from app.utils import Utils
 
 app = FastAPI()
 
