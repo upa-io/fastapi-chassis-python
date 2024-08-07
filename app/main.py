@@ -3,7 +3,20 @@ from datetime import datetime
 from pydantic import BaseModel
 from app.utils import Utils
 
-app = FastAPI()
+app = FastAPI(
+    title="Chassis Python FastAPI",
+    description="This is a sample API to demonstrate OpenAPI documentation with FastAPI.",
+    version="1.13.0",
+    contact={
+        "name": "API Support",
+        "url": "https://jeaguirre-web.vercel.app",
+        "email": "infoaguirrejesus@proton.me",
+    },
+    license_info={
+        "name": "Apache 2.0",
+        "url": "http://www.apache.org/licenses/LICENSE-2.0.html",
+    },
+)
 
 class DateInput(BaseModel):
     date: datetime = datetime.now()
