@@ -23,7 +23,9 @@
                     "ms-python.vscode-pylance",
                     "ms-python.python",
                     "github.copilot",
-                    "kevinrose.vsc-python-indent"
+                    "kevinrose.vsc-python-indent",
+                    "fill-labs.dependi",
+                    "github.vscode-github-actions"
                 ],
                 "postCreateCommand": "pip install --user -r requirements.txt"
             }
