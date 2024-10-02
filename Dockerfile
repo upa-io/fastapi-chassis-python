@@ -1,5 +1,5 @@
 # Usamos la imagen base de Python 3.9.17 con una versión "slim" para un contenedor más ligero
-FROM python:3.12.6-slim
+FROM python:3.12.7-slim
 
 # Crear un usuario no privilegiado llamado "appuser"
 RUN adduser --disabled-password --gecos "" appuser
